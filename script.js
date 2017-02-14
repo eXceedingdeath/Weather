@@ -17,10 +17,13 @@ $("#data").html("latitude: " + userLat + "<br>longitude: " + userLon);
 	celsius();
 	});
 
-
 getWeather();
+
 });
+
 }
+
+else { alert("Sorry! Geolocation API couldn't be enabled");}
 
 var userUnits = "metric";
 var weatherUrl = "";
