@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  vertical-align: baseline;
+}
+
+  html {
+height:100%;
+} 
+
+body {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #333;
+  background: linear-gradient(#8399AE, #fff);
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-size: 300%;
+  text-align: center;
+  -webkit-text-stroke: 0.0px black;
+}
+
+.icons {
+  padding: 30px;
+}
+
+#degrees {
+	visibility: hidden;
+	font-size: 150%;
+}
+
+label {
+	visibility: hidden;
+	font-size: 80%;
+}
+
+span {
+	line-height: 50px;
+}
+
+.location {
+    padding-top: 15px;
+	font-weight: italic;
+	visibility: hidden;
+	font-size: 70%;
+	opacity: 0.9;
+}
+
+.others {
+	visibility: hidden;
+	font-size: 75%;
+}
+
+.description {
+	padding-bottom: 25px;
+}
