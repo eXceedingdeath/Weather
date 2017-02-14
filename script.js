@@ -45,7 +45,7 @@ function celsius() {
 }
 
 function getWeather(){
-weatherUrl = "http://api.openweathermap.org/data/2.5/forecast?lat=" + userLat + "&lon=" + userLon + "&units=" + userUnits + "&APPID=5cc30da7a1f79cab20dd7467109fac7d";
+weatherUrl = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?lat=" + userLat + "&lon=" + userLon + "&units=" + userUnits + "&APPID=5cc30da7a1f79cab20dd7467109fac7d";
 
 $.getJSON(weatherUrl).then(function(data) {
 
