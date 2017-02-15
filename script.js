@@ -23,7 +23,7 @@ getWeather();
 
 }
 
-else { alert("Sorry! Geolocation API couldn't be enabled");}
+//else { alert("Sorry! Geolocation API couldn't be enabled");}
 
 var userUnits = "metric";
 var weatherUrl = "";
