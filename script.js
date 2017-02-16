@@ -23,14 +23,14 @@ getWeather();
 
 }
 
-//else { alert("Sorry! Geolocation API couldn't be enabled");}
-
 var userUnits = "metric";
 var weatherUrl = "";
 var skycons = new Skycons({"color": "white"});
+var skycons2 = new Skycons({"color": "#eee"});
+var skycons3 = new Skycons({"color": "#FFFF66"});
+var skycons4 = new Skycons({"color": "#FEFCD7"});
 var description = "";
 var hour ="";
-//skycons.add("icon1", Skycons.PARTLY_CLOUDY_DAY);
 
 function farenheit() {
 	userUnits = "imperial";
@@ -45,104 +45,116 @@ function celsius() {
 }
 
 function getWeather(){
-weatherUrl = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?lat=" + userLat + "&lon=" + userLon + "&units=" + userUnits + "&APPID=5cc30da7a1f79cab20dd7467109fac7d";
+weatherUrl = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?lat=" + userLat + "&lon=" + userLon + "&units=" + userUnits + "&APPID=5cc30da7a1f79cab20dd7467109fac7d";
 
 $.getJSON(weatherUrl).then(function(data) {
 
-	weathericon = data.list[0].weather[0].icon;
+	weathericon = data.weather[0].icon;
 	hour = moment().format('H');
 	switch(weathericon) {
 		case "01d":
-		skycons.set("icon1", Skycons.CLEAR_DAY);
+		skycons3.set("icon1", Skycons.CLEAR_DAY);
 		$("body").css({background: "linear-gradient(#009FFF, #D0E9F2)" });
 		$("body").css({color: "#FFFF66" });
+		skycons3.play();
 		break;
 
 		case "01n":
-        skycons.set("icon1", Skycons.CLEAR_NIGHT);
+        skycons4.set("icon1", Skycons.CLEAR_NIGHT);
         $("body").css({background: "linear-gradient(#009FFF, #D0E9F2)" });
 		$("body").css({color: "#FEFCD7" });
+		skycons4.play();
 		break;
 
 		case "02d":
 		skycons.set("icon1", Skycons.PARTLY_CLOUDY_DAY);
 		$("body").css({background: "linear-gradient(#72BBD8, #D0E9F2)" });
 		$("body").css({color: "#fff" });
+		skycons.play();
 		break;
 
 		case "02n":
-        skycons.set("icon1", Skycons.PARTLY_CLOUDY_NIGHT);
+        skycons4.set("icon1", Skycons.PARTLY_CLOUDY_NIGHT);
         $("body").css({background: "linear-gradient(#2F3D8E, #59688C)" });
 		$("body").css({color: "#FEFCD7" });
+		skycons4.play();
 		break;
 
 		case "03d":
 		skycons.set("icon1", Skycons.PARTLY_CLOUDY_DAY);
 		$("body").css({background: "linear-gradient(#72BBD8, #D0E9F2)" });
 		$("body").css({color: "#fff" });
+		skycons.play();
 		break;
 
 		case "03n":
-        skycons.set("icon1", Skycons.PARTLY_CLOUDY_NIGHT);
+        skycons4.set("icon1", Skycons.PARTLY_CLOUDY_NIGHT);
         $("body").css({background: "linear-gradient(#2F3D8E, #59688C)" });
 		$("body").css({color: "#FEFCD7" });
+		skycons4.play();
 		break;
 
 		case "04d":
 		case "04n":
-		skycons.set("icon1", Skycons.CLOUDY);
+		skycons2.set("icon1", Skycons.CLOUDY);
 		$("body").css({background: "linear-gradient(#7B8EA0, #D0E9F2)" });
 		$("body").css({color: "#eee" });
+		skycons2.play();
 		break;
 
 		case "09d":
 		case "09n":
-		skycons.set("icon1", Skycons.SLEET);
+		skycons2.set("icon1", Skycons.SLEET);
 		$("body").css({background: "linear-gradient(#8399AE, #D0E9F2)" });
 		$("body").css({color: "#eee" });
+		skycons2.play();
 		break;
 
 		case "10d":
 		case "11d":
 		case "10n":
 		case "10n":
-		skycons.set("icon1", Skycons.RAIN);
+		skycons2.set("icon1", Skycons.RAIN);
 		$("body").css({background: "linear-gradient(#8399AE, #D0E9F2)" });
 		$("body").css({color: "#eee" });
+		skycons2.play();
 		break;
 
 
 		case "13d":
 		case "13n":
-		skycons.set("icon1", Skycons.SNOW);
+		skycons2.set("icon1", Skycons.SNOW);
 		$("body").css({background: "linear-gradient(#8399AE, #fff)" });
 		$("body").css({color: "#eee" });
+		skycons2.play();
 		break;
 
 		case "50d":
 		case "50n":
-		skycons.set("icon1", Skycons.FOG);
+		skycons2.set("icon1", Skycons.FOG);
 		$("body").css({background: "linear-gradient(#8399AE, #fff)" });
 		$("body").css({color: "#eee" });
+		skycons2.play();
 		break;
 
 		default:
-		skycons.set("icon1", Skycons.CLEAR_DAY);
+		skycons3.set("icon1", Skycons.CLEAR_DAY);
 		$("body").css({background: "linear-gradient(#009FFF, #D0E9F2)" });
 		$("body").css({color: "#FFFF66" });
+		skycons3.play();
 
 
 	}
 
-	$("#citydata").html(data.city.name + " , " + data.city.country);
+    $("#citydata").html(data.name + " , " + data.sys.country);
 	$("#timedata").html(moment().format('MMMM Do YYYY, H:mm'));
-    $("#tempdata").html(data.list[0].main.temp);
-    $("#mintempdata").html(data.list[0].main.temp_min);
-    $("#maxtempdata").html(data.list[0].main.temp_max);
-    $("#humiditydata").html(data.list[0].main.humidity);
-    $("#pressuredata").html(data.list[0].main.pressure);
-    $("#winddata").html(data.list[0].wind.speed);
-    $("#descriptiondata").html(data.list[0].weather[0].description);
+    $("#tempdata").html(data.main.temp);
+    $("#mintempdata").html(data.main.temp_min);
+    $("#maxtempdata").html(data.main.temp_max);
+    $("#humiditydata").html(data.main.humidity);
+    $("#pressuredata").html(data.main.pressure);
+    $("#winddata").html(data.wind.speed);
+    $("#descriptiondata").html(data.weather[0].description);
     $("#degrees").css("visibility", "visible");
     $("label").css("visibility", "visible");
     $(".location").css("visibility", "visible");
@@ -151,7 +163,10 @@ $.getJSON(weatherUrl).then(function(data) {
 
 
     //console.log(data);
-    skycons.play();
+    // skycons.play();
+    // skycons2.play();
+    // skycons3.play();
+    // skycons4.play();
 });
 
 }
