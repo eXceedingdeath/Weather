@@ -61,7 +61,7 @@ $.getJSON(weatherUrl).then(function(data) {
 
 		case "01n":
         skycons4.set("icon1", Skycons.CLEAR_NIGHT);
-        $("body").css({background: "linear-gradient(#009FFF, #D0E9F2)" });
+        $("body").css({background: "linear-gradient(#011F4B, #03396C)" });
 		$("body").css({color: "#FEFCD7" });
 		skycons4.play();
 		break;
