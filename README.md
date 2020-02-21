@@ -1,4 +1,4 @@
 # Weather
 Weather application
 
-http://sunstarsmoon.com/Weather/
+http://theghostswithin.fr/Weather/
