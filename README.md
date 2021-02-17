@@ -1,4 +1,4 @@
 # Weather
 Weather application
 
-http://theghostswithin.fr/Weather/
+http://pascalmaumejean.eu/Weather/
